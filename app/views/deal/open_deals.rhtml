@@ -1,0 +1,18 @@
+<script src="http://maps.google.com/maps?file=api&amp;v=2.x&amp;key=ABQIAAAAKISFU-q3GRKoh56RiJHchhScOdJMqQJvNdZo37E0T2WkoACkFhSHe5vTQEKjM6PB0aJmjrxgu2BZpA" type="text/javascript"></script>
+<div id="offer-list">
+
+  <h1>OPEN DEALS</h1>
+
+<center>
+  <h4>You have <%= pluralize(@open_deals.length, 'deal') %> that need to be confirmed by other people!</h4>
+</center>
+
+  <table cellpadding="5" cellspacing="0">
+    <tr valign="top" %>
+      <td><h2 style="color:red">You give</h4></td>
+      <td></td>
+      <td><h2 style="color:green">You get</h4></td>
+      <td></td>
+    </tr>
+
+  <%= render(:partial => "deals", :object => @open_deals, :locals => {:mission => @action}) %>

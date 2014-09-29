@@ -1,0 +1,79 @@
+
+<% @gmapsid = offer.id.to_s + "gm" %>
+
+<script type="text/javascript">
+    //<![CDATA[
+
+    var map = null;
+    var geocoder = null;
+
+
+      if (GBrowserIsCompatible()) {
+        geocoder = new GClientGeocoder();
+        map = new GMap2(document.getElementById("<%= @gmapsid %>"));
+        address = "<%= offer.user.street %> <%= offer.user.zipcode %> <%= offer.user.city %> <%= offer.user.country %>";
+		
+		if (geocoder) {
+        geocoder.getLatLng(
+          address,
+          function(point) {
+            if (!point) {
+              alert(address + " not found");
+            } else {
+              map.setCenter(point, 10);
+              var marker = new GMarker(point);
+              map.addOverlay(marker);
+              marker.openInfoWindowHtml(address);
+            }
+          }
+        );
+      }
+	  
+        map.addControl(new GSmallMapControl());
+        map.addControl(new GMapTypeControl());
+        map.enableDoubleClickZoom();
+        map.enableScrollWheelZoom();
+        map.enableContinuousZoom();    
+      }
+
+
+      
+    //]]>
+    </script>
+
+
+
+
+<br>
+<br>
+<br>
+<%= h(offer.long_description) %>
+<br>
+<br>
+Category:  <%= h(offer.category.name) %>
+<br>
+Requests: <% (offer.requests).each do |req|%>
+[<%= h(req.category.name) %>]&nbsp;
+<% end %>
+<br>
+Offered by: <%= h(offer.user.login) %>
+<br>
+
+<div id="<%=@gmapsid%>" style="width: 400px; height: 400px"></div>
+
+<br>
+<!-- Direct offer -->
+<% if !session[:user_id].nil? %>
+<% @user = User.find(session[:user_id]) %>
+<% if  !@user.get_offers_array.empty? &&
+       offer.user_id != session[:user_id] %>
+  <% form_tag :action => "direct_offer/#{offer.id}" do %>
+  <p>
+    <label="direct_offer">Available Offers:</label>
+     <%= select_tag "direct_offer",
+         options_for_select(@user.get_offers_array)
+     %>
+  <%= submit_tag "Make Offer" %>
+  <% end %>
+ <% end %>
+<% end %>

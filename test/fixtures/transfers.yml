@@ -1,0 +1,23 @@
+einstein_to_goedel:
+ id: 1
+ deal_id: 1
+ from_user_id: 1
+ to_user_id: 2
+ offer_id: 1
+ status: 0
+
+goedel_to_planck:
+ id: 2
+ deal_id: 1
+ from_user_id: 2
+ to_user_id: 3
+ offer_id: 3
+ status: 0
+
+planck_to_einstein:
+ id: 3
+ deal_id: 1
+ from_user_id: 3
+ to_user_id: 1
+ offer_id: 2
+ status: 0

@@ -1,0 +1,20 @@
+<h1>Edit Offer [<%= @offer.name %>]</h1>
+
+<div class="stuffmarket-form">
+  <%= error_messages_for 'offer' %>
+
+  <fieldset>
+    <legend>Edit Entry</legend>
+
+    <% form_for :offer, :url => { :action => :update } do |form| %>
+
+      <%= render :partial => "form", :object => form %>
+
+      <%= submit_tag "Update", :class => "submit" %>
+    <% end %>
+  </fieldset>
+
+</div>
+<br><br>
+
+<%= link_to 'Back', :action => 'list' %>

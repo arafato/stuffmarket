@@ -1,0 +1,79 @@
+
+
+<% deals.each do |trans_give, trans_get, num_left, total| -%>
+
+
+<% offer_give = trans_give.offer -%>
+<% offer_get = trans_get.offer %>
+<% hiddenGive = trans_give.id.to_s -%>
+<% hiddenGet = trans_get.id.to_s -%>
+
+
+
+
+
+
+
+    <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>">
+
+      <td>
+        <%= link_to_remote(image_tag(h(offer_give.picture_url), :class => "list-image"),
+                           :update => hiddenGive,
+                           :url => { :action => mission, :id => offer_give.id},
+                           :complete => visual_effect(:toggle_appear, hiddenGive)
+                           ) %>
+      </td>
+
+      <td>
+        <span class="list-title"><%= h(offer_give.name) %></span><br />
+        <%= h(offer_give.short_description) %>
+        <div id="<%=hiddenGive%>" style="display:none">
+          <!-- Long description will go in here -->
+        </div>
+		
+      </td>
+      <td>
+        <%= link_to_remote(image_tag(h(offer_get.picture_url), :class => "list-image"),
+                           :update => hiddenGet,
+                           :url => { :action => mission, :id => offer_get.id},
+                           :complete => visual_effect(:toggle_appear, hiddenGet)
+                           ) %>
+      </td>
+
+      <td width="50%">
+        <span class="list-title"><%= h(offer_get.name) %></span><br />
+        <%= h(offer_get.short_description) %>
+
+        <div id="<%=hiddenGet%>" style="display:none">
+          <!-- Long description will go in here -->
+        </div>	
+		
+      </td>
+    </tr>
+    <% if mission == "expand_open_deals" || mission == "expand_undecided_deals" %>
+<tr style="background:orange">
+      <td></td>
+      <td><h5>This deal still needs to be confirmed by <%= num_left %> out of <%= pluralize(total, "person")%>!</h5></td>
+      <td></td>
+      <% if mission == "expand_undecided_deals" %>
+      <td>
+        <%= button_to("Confirm Deal!", :action => "confirm_deal", :id => trans_give.id) %>
+		<br>
+        <%= button_to("Reject Deal!", :action => "reject_deal", :id => trans_give.deal.id) %>
+      </td>
+	  
+      <% end %>
+      <td></td>
+    </tr>
+<% end %>
+
+<tr valign="top" %>
+      <td><h2></h4></td>
+      <td></td>
+      <td><h2></h4></td>
+      <td></td>
+    </tr>
+
+<% end %>
+</table>
+</div>

@@ -1,0 +1,42 @@
+<div id="offer-list">
+  <h1>My Offers</h1>
+  <br />
+  <center><h4>You have <%= pluralize(@total_offers, 'offer') %> for trading!</h4></center>
+
+  <table cellpadding="5" cellspacing="0">
+  <% for offer in @offers %>
+  <% @hiddenDiv = offer.id.to_s %>
+    <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>">
+
+      <td>
+        <%= link_to_remote(image_tag(h(offer.picture_url), :class => "list-image"),
+                           :update => @hiddenDiv,
+                           :url => { :action => "expand", :id => offer.id},
+                           :complete => visual_effect(:toggle_appear, @hiddenDiv)
+                           ) %>
+      </td>
+
+      <td width="60%">
+        <span class="list-title"><%= h(offer.name) %></span><br />
+        <%= h(offer.short_description) %>
+
+        <div id="<%=@hiddenDiv%>" style="display:none">
+          <!-- Long description will go in here -->
+        </div>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+
+</div>
+
+
+<%=  if @offer_pages.current.previous
+       link_to("Previous page", { :page => @offer_pages.current.previous })
+     end
+%>
+
+<%= if @offer_pages.current.next
+      link_to("Next page", { :page => @offer_pages.current.next })
+    end
+%>

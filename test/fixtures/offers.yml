@@ -1,0 +1,23 @@
+offer_piano:
+ id: 1
+ short_description: short description
+ long_description: long description
+ picture_url: piano.png
+ user_id: 1
+ category_id: 2
+
+offer_a-guitar:
+ id: 2
+ short_description: short description
+ long_description: long description
+ picture_url: aguitar.png
+ user_id: 3
+ category_id: 5
+
+offer_e-guitar:
+ id: 3
+ short_description: short description
+ long_description: long description
+ picture_url: eguitar.png
+ user_id: 2
+ category_id: 4

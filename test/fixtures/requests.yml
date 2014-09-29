@@ -1,0 +1,14 @@
+req_a-guitar:
+ id: 1
+ offer_id: 1
+ category_id: 5
+
+req_e-guitar:
+ id: 2
+ offer_id: 2
+ category_id: 4
+
+req_piano:
+ id: 3
+ offer_id: 3
+ category_id: 2

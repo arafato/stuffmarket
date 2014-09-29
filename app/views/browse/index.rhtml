@@ -1,0 +1,43 @@
+<h1>Welcome to STUFFMARKET!</h1>
+<br>
+<br>
+<h2>Browse Categories:</h2>
+<br><br>
+<%= link_to(image_tag("books.png", :border => 0), :action => 'browse_category/2') %> 
+<h3>
+<%= link_to 'Books' , :action => 'browse_category/2' %>
+</h3>
+
+<h4>
+	<%= link_to 'Computer' , :action => 'browse_category/5' %> <br>
+	<%= link_to 'Children' , :action => 'browse_category/6' %> <br>
+	<%= link_to 'Literature' , :action => 'browse_category/7' %> <br>
+</h4>
+<br>
+
+<%= link_to(image_tag("movies.png", :border => 0), :action => 'browse_category/3') %> 
+
+<h3>
+<%= link_to 'Movies' , :action => 'browse_category/3' %> 
+</h3>
+
+<h4>
+	<%= link_to 'Action' , :action => 'browse_category/8' %><br>
+	<%= link_to 'Comedy' , :action => 'browse_category/9' %><br>
+	<%= link_to 'Adult' , :action => 'browse_category/10' %><br>
+</h4>
+<br>
+<%= link_to(image_tag("music.png", :border => 0), :action => 'browse_category/4') %> 
+<h3>
+<%= link_to 'Music' , :action => 'browse_category/4' %>
+</h3>
+
+<h4>
+	<%= link_to 'Electronic' , :action => 'browse_category/11' %><br>
+	<%= link_to 'Jazz' , :action => 'browse_category/12' %><br>
+	<%= link_to 'Rock' , :action => 'browse_category/13' %><br>
+</h4>
+
+
+</h4>
+</div>

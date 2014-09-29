@@ -1,0 +1,29 @@
+root:
+ id: 1
+ parent_id: 0
+ name: Root
+
+instruments:
+ id: 2
+ parent_id: 1
+ name: Instruments
+
+guitars:
+ id: 3
+ parent_id: 2
+ name: Guitars
+
+acoustic_guitars:
+ id: 4
+ parent_id: 3
+ name: Acoustic Guitars
+
+electric_guitars:
+ id: 5
+ parent_id: 3
+ name: Electric Guitars
+
+computers:
+ id: 6
+ parent_id: 1
+ name: Computers

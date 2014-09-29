@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html>
+  <head>
+
+    <title>STUFFMARKET  --  Money sucks!</title>
+    <%= stylesheet_link_tag "stuffmarket", :media => "all" %>
+    <%= javascript_include_tag :defaults %>
+  </head>
+
+
+  <body>
+
+    <!--  Banner  -->
+    <div id="banner">
+      <%= link_to(image_tag("stuffmarket/logo.png", :class => "banner", :border => 0), { :controller => "browse", :action => "index"}) %>
+    </div>
+
+    <div style="float:right;width:150px">
+    <% if session[:user_id].nil? %>
+      <!-- Login or Signup -->
+
+        <%= link_to("Login", { :controller => "login", :action => "login"}) %> or
+        <%= link_to("Signup", { :controller => "login", :action => "signup"}) %>
+        - Help
+
+      <% else %>
+
+        <!-- User is logged in -->
+        <% @act_user = User.find_by_id(session[:user_id]) %>
+        Welcome <%= @act_user.firstname %> <%= @act_user.lastname %>!
+        <br><br>
+        You are logged in as <%= @act_user.login %>
+        (<%= link_to("Logout", { :controller => "login", :action => "logout"}) %>)
+
+    <% end %>
+    </div>
+
+
+    <!--  Navigation  -->
+    <div id="nav" style="height:70px;">
+      <%= link_to(image_tag("stuffmarket/browse.png" , :class => 'nav', :border => 0), { :controller => "browse/"}) %>&nbsp;&nbsp;
+      <%= image_tag("stuffmarket/offer_on.png", :class => 'nav') %>&nbsp;&nbsp;
+      <%= link_to(image_tag("stuffmarket/deal.png" , :class => 'nav', :border => 0), { :controller => "deal", :action => 'undecided_deals'}) %>
+    </div>
+
+<div id="side">
+<h3>
+  <div class="sideBarButton" id="buttonContent">
+    <%= link_to("My Offers", { :action => "index"}) %>
+  </div>
+
+  <div class="sideBarButton" id="buttonContent">
+    <%= link_to("New Offer", { :action => "new_offer"}) %>
+  </div>
+</h3>
+</div>
+
+
+</div>
+<div id="main">
+<% if flash[:notice] -%>
+      <div id="notice"><%= flash[:notice] %></div>
+    <% end -%>
+
+  <%= yield :layout %>
+
+</div>
+</body>
+</html>
+

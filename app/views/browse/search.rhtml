@@ -1,0 +1,59 @@
+<script src="http://maps.google.com/maps?file=api&amp;v=2.x&amp;key=ABQIAAAAKISFU-q3GRKoh56RiJHchhRtUJVYra0czh9S-RZV3o274kwQKRRKg4LZlPa8_IAmpQffBC_AP1xt4w" type="text/javascript"></script>
+
+
+<div id="offer-list">
+  <h1>Search Results for '<%= session[:search_term] %>'</h1>
+  <br />
+  
+  <table cellpadding="5" cellspacing="1">
+  <% for offer in @offers %>
+  
+  <% available = true %>
+  
+  <% transfers = offer.transfers
+     transfers.each do |transfer|
+     	if transfer.deal.status == 1
+			available = false
+		end
+     end 
+  %>
+  
+  <%if available%>
+    
+  <% @hiddenDiv = offer.id.to_s %>
+    <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>">
+
+      <td>
+        <%= link_to_remote(image_tag(h(offer.picture_url), :class => "list-image"),
+                           :update => @hiddenDiv,
+                           :url => { :action => "expand", :id => offer.id},
+                           :complete => visual_effect(:toggle_appear, @hiddenDiv)
+                           ) %>
+      </td>
+
+      <td width="60%">
+        <span class="list-title"><%= h(offer.name) %></span><br />
+        <%= h(offer.short_description) %>
+
+        <div id="<%=@hiddenDiv%>" style="display:none">
+          <!-- Long description will go in here -->
+        </div>
+      </td>
+    </tr>
+  <% end %>
+  <% end %>
+  </table>
+
+</div>
+
+
+<%=  if @offer_pages.current.previous
+       link_to("Previous page", { :page => @offer_pages.current.previous })
+     end
+%>
+
+<%= if @offer_pages.current.next
+      link_to("Next page", { :page => @offer_pages.current.next })
+    end
+%>
+

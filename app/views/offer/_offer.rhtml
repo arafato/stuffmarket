@@ -1,0 +1,19 @@
+<% if session[:user_id] == @offer.user_id %>
+<br>
+<br>
+<br>
+<%= h(offer.long_description) %>
+<br>
+<br>
+Category:  <%= h(offer.category.name) %>
+<br>
+Requests: <% (offer.requests).each do |req|%>
+[<%= h(req.category.name) %>]&nbsp;
+<% end %>
+
+<br><br>
+<%= button_to("Edit Offer", :action => "edit", :id => offer.id) %>
+<%= button_to("Delete Offer", {:action => "delete", :id => offer.id},
+              :confirm => "Are you sure?",
+              :method => :post) %>
+<% end %>

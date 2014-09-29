@@ -1,0 +1,32 @@
+<h1>Create New Offer</h1>
+
+<div class="stuffmarket-form">
+  <%= error_messages_for 'offer' %>
+
+  <fieldset>
+    <legend>Please Enter Offer Details</legend>
+
+    <% form_for :offer, :url => { :action => :create_offer} do |form| %>
+
+    <%= render :partial => "form", :object => form %>
+
+
+    <p>
+      <label for="offer_requests">Requests:</label>
+      <%=
+         select_tag "requests[]",
+         options_for_select(Category.category_tree),
+         :multiple => true,
+         :size => 10
+      %>
+    </p>
+
+
+    <%= submit_tag "Place Offer", :class => "submit" %>
+    <% end %>
+  </fieldset>
+
+</div>
+<br><br>
+
+<%= link_to 'Back', :action => 'list' %>

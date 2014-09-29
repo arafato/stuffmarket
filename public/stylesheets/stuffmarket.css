@@ -1,0 +1,187 @@
+/*****************/
+/* GLOBAL STYLES */
+/*****************/
+
+a { color: #000; }
+a:visited { color: #000; }
+a:hover { color: #000; background-color:#181; }
+
+
+#notice {
+  border: 2px solid red;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #f0f0f0;
+  font: bold smaller sans-serif;
+}
+
+
+body
+{
+ font-family:"Lucida Grande", "Bitstream Vera Sans", "Verdana";
+ font-size:12px;
+ background-color:#ffffff;
+}
+h1 {font-size:18px;color:#000000;margin-bottom:0px; text-align:center}
+h2 {font-size:14px;color:#000000;}
+h3 {font-size:14px;color:#000000;}
+
+
+#main {
+  margin-left: 15em;
+  padding-top: 4ex;
+  padding-left: 2em;
+  background: white;
+}
+
+
+#side {
+   float: left;
+   padding-top: 1em;
+   padding-left: 1em;
+   padding-bottom: 1em;
+   background: #e8e8e8;
+   height: 100em;
+
+}
+
+#banner {
+   float:left;
+   width:156px;
+   height:20px;
+}
+
+#nav {
+color:#ffffff;
+text-align:center;
+border-bottom:5px solid #e8e8e8;
+clear:left;
+}
+
+#content {
+border:1px solid #ffffff;
+background-color:#ffffff;
+padding:5px;
+color:#000000;
+}
+
+.stuffmarket-form fieldset {
+  background: #efe;
+}
+
+.stuffmarket-form legend {
+  color: #dfd;
+  background: #181;
+  font-family: sans-serif;
+  padding: 0.2em 1em;
+}
+
+.stuffmarket-form label {
+  width: 10em;
+  float: left;
+  text-align: right;
+  margin-right: 0.5em;
+  display: block;
+}
+
+.stuffmarket-form .submit {
+  margin-left: 5.5em;
+}
+
+
+/*************************/
+/* Styles for offer list */
+/*************************/
+
+#offer-list {
+   border: 2px solid #181;
+}
+
+#offer-list .list-title {
+   color:        #244;
+   font-weight:  bold;
+   font-size:    larger;
+}
+
+#offer-list .list-image {
+   width:        80px;
+   height:       80px;
+}
+
+
+#offer-list .list-actions {
+
+  font-size:    x-small;
+  text-align:   right;
+  padding-left: 1em;
+}
+
+#offer-list .list-line-even {
+   align-text: left;
+   background:   #efe;
+}
+
+#offer-list .list-line-odd {
+   align-text: left;
+   background:   #e8e8e8;
+}
+
+
+/********************/
+/* Side Bar Buttons */
+/********************/
+.sideBarButton {
+   padding: 2px;
+   background-color: #181;
+   display: table;
+}
+
+#buttonContent {
+   border: 2px solid #181;
+   padding: 7px;
+   padding-bottom: 12px;
+   margin-bottom: 20px;
+   background-color: #f0f0f0;
+}
+
+
+
+/*****************/
+/* The error box */
+/*****************/
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}

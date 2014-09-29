@@ -1,0 +1,37 @@
+<% SALT = "blubber" unless defined?(SALT) %>
+
+einstein:
+ id: 1
+ login: einstein
+ hashed_password: <%= User.encrypted_password('relativity', SALT) %>
+ salt: <%= SALT %>
+ firstname: Albert
+ lastname: Einstein
+ street: Photonstreet 42
+ zipcode: 11111
+ city: Princeton
+ country: USA
+
+goedel:
+ id: 2
+ login: goedel
+ hashed_password: <%= User.encrypted_password('incomplete', SALT) %>
+ salt: <%= SALT %>
+ firstname: Kurt
+ lastname: Goedel
+ street: Pillepalle Ave 42
+ zipcode: 11111
+ city: Princeton
+ country: USA
+
+planck:
+ id: 3
+ login: planck
+ hashed_password: <%= User.encrypted_password('quantum', SALT) %>
+ salt: <%= SALT %>
+ firstname: Gottfried
+ lastname: Planck
+ street: Blablubberstrasse 42
+ zipcode: 85402
+ city: Kranzberg
+ country: Germany
